@@ -1,5 +1,9 @@
 #!/bin/bash
 
+export REPO_NAME=$REPO_NAME
+export ACCOUNT_ID=$ACCOUNT_ID
+export ENVIRONMENT=$ENVIRONMENT
+
 aws eks update-kubeconfig --name $ENVIRONMENT-$REPO_NAME --region $AWS_REGION
 
 kubectl apply -f templates/rbac-role-alb-ingress-controller.yaml
