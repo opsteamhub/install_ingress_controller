@@ -13,6 +13,6 @@ eks.amazonaws.com/role-arn=arn:aws:iam::$ACCOUNT_ID:role/role-ingress-controller
 
 cd templates
 
-sed -i 's/\# - --cluster-name=devCluster/- --cluster-name=$ENVIRONMENT-$REPO_NAME/g' alb-ingress-controller.yaml 
+sed -i 's/\# - --cluster-name=devCluster/- --cluster-name=${ENVIRONMENT}-${REPO_NAME}/g' alb-ingress-controller.yaml 
 
 kubectl apply -f alb-ingress-controller.yaml
