@@ -1,5 +1,7 @@
 #!/bin/bash
 
+aws eks update-kubeconfig --name $ENVIRONMENT-$REPO_NAME --region $AWS_REGION
+
 kubectl apply -f templates/rbac-role-alb-ingress-controller.yaml
 
 kubectl annotate serviceaccount -n kube-system alb-ingress-controller \
